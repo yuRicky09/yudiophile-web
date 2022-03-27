@@ -1,9 +1,12 @@
 <template>
   <div>
-    <router-view></router-view>
+    <TheNavigation />
+    <router-view class="px-4"></router-view>
+    <TheFooter class="px-4" />
   </div>
 </template>
 
 <script setup>
-console.log(import.meta.env.VITE_APP_TEST);
+import TheNavigation from "@/components/navigation/TheNavigation.vue";
+import TheFooter from "@/components/TheFooter.vue";
 </script>

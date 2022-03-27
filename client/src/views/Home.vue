@@ -1,7 +1,5 @@
 <template>
-  <div class="text-2xl font-bold uppercase text-red-600">
-    Welcome Morbi interdum mollis sapien
-  </div>
+  <div class="text-2xl font-bold uppercase text-red-600"></div>
 </template>
 
 <script setup></script>
