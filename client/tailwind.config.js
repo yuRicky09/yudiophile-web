@@ -5,6 +5,11 @@ module.exports = {
       "8xl": "90rem",
     },
     extend: {
+      colors: {
+        orange: {
+          450: "#D87D4A",
+        },
+      },
       keyframes: {
         "scale-from-top": {
           "0%": { transform: "scaleY(0)" },

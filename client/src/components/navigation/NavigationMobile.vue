@@ -1,13 +1,23 @@
 <template>
-  <div class="relative z-20 flex items-center justify-between px-4 py-4">
-    <MenuIcon v-show="!isOpen" @click="isOpen = !isOpen" />
-    <CloseIcon v-show="isOpen" @click="isOpen = !isOpen" />
+  <div
+    class="relative z-20 flex h-16 items-center justify-between px-4 md:hidden"
+  >
+    <MenuIcon
+      v-show="!isOpen"
+      class="cursor-pointer"
+      @click="isOpen = !isOpen"
+    />
+    <CloseIcon
+      v-show="isOpen"
+      class="cursor-pointer"
+      @click="isOpen = !isOpen"
+    />
     <router-link :to="{ name: 'Home' }">
       <h1 class="font-bold">yudiophile</h1>
     </router-link>
     <div class="flex items-center gap-2">
-      <UserIcon />
-      <CartIcon />
+      <UserIcon class="cursor-pointer" />
+      <CartIcon class="cursor-pointer" />
     </div>
 
     <Transition
@@ -33,7 +43,7 @@
       </nav>
     </Transition>
   </div>
-  <BaseOverlay @click="isOpen = false" />
+  <BaseOverlay v-show="isOpen" @click="isOpen = false" />
 </template>
 
 <script setup>

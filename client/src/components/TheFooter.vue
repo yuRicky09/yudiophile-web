@@ -3,23 +3,35 @@
     <div
       class="mx-auto grid max-w-8xl grid-cols-1 justify-items-center gap-y-8 py-10 text-center text-white"
     >
-      <router-link :to="{ name: 'Home' }"
+      <router-link
+        :to="{ name: 'Home' }"
+        class="relative transition-colors before:absolute before:-top-10 before:left-0 before:h-1 before:w-full before:bg-orange-300 hover:text-orange-300"
         ><h2 class="text-2xl font-extrabold">yudiophile</h2></router-link
       >
 
       <nav>
         <ul class="flex flex-col gap-4">
           <li>
-            <router-link :to="{ name: 'Home' }">HOME</router-link>
+            <router-link
+              :to="{ name: 'Home' }"
+              class="transition-colors hover:text-orange-300"
+              >HOME</router-link
+            >
           </li>
           <li>
-            <router-link to="">HEADPHONES</router-link>
+            <router-link to="#" class="transition-colors hover:text-orange-300"
+              >HEADPHONES</router-link
+            >
           </li>
           <li>
-            <router-link to="">SPEAKERS</router-link>
+            <router-link to="#" class="transition-colors hover:text-orange-300"
+              >SPEAKERS</router-link
+            >
           </li>
           <li>
-            <router-link to="">EARPHONES</router-link>
+            <router-link to="#" class="transition-colors hover:text-orange-300"
+              >EARPHONES</router-link
+            >
           </li>
         </ul>
       </nav>

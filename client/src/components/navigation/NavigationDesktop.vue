@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="hidden h-16 md:block"></div>
 </template>
 
 <script setup></script>

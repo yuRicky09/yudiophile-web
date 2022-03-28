@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-zinc-900 text-white">
+  <header class="border-b border-b-gray-700 bg-zinc-900 text-white">
     <div class="mx-auto max-w-8xl">
-      <NavigationDesktop class="md:block" />
-      <NavigationMobile class="py-4 md:hidden" />
+      <NavigationDesktop />
+      <NavigationMobile />
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>
