@@ -34,11 +34,11 @@
 
 @layer components {
   .btn {
-    @apply bg-orange-450 py-4 px-8 font-bold uppercase tracking-widest transition-colors hover:bg-orange-300;
+    @apply bg-orange-450 py-4 px-8 font-bold uppercase tracking-widest text-white transition-colors hover:bg-orange-300;
   }
 
   .btn.btn-alt {
-    @apply border-2 border-black  bg-transparent hover:bg-black hover:text-white;
+    @apply border-2 border-black  bg-transparent text-black hover:bg-black hover:text-white;
   }
 
   .btn.btn-black {
