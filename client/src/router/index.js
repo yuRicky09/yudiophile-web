@@ -6,6 +6,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      title: "Yudiophile | Home",
+    },
   },
   {
     path: "/login",
@@ -33,10 +36,6 @@ const routes = [
   },
 ];
 
-router.afterEach((to) => {
-  document.title = to.meta.tile;
-});
-
 const router = createRouter({
   history: createWebHistory(),
   routes,
@@ -49,6 +48,10 @@ const router = createRouter({
       };
     }
   },
+});
+
+router.afterEach((to) => {
+  document.title = to.meta.title;
 });
 
 export default router;

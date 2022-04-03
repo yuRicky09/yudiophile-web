@@ -27,14 +27,40 @@
         >
       </div>
     </div>
+
+    <Teleport to="body">
+      <template v-if="showModal">
+        <BaseOverlay class="bg-black/30" />
+        <BaseModal>
+          <template #title>
+            <h1 class="font-bold">THANK YOU FOR YOUR ORDER</h1>
+          </template>
+          <template #content>
+            <p>Congratulations, your account has been successfully created.</p>
+          </template>
+          <template #action>
+            <p class="text-orange-450">
+              Redurecting to the home page in 2 seconds.
+            </p>
+          </template>
+        </BaseModal>
+      </template>
+    </Teleport>
   </div>
 </template>
 
 <script setup>
 import { string as yupString, object as yupObject, ref as yupRef } from "yup";
 import { useForm } from "vee-validate";
+import { useRouter } from "vue-router";
+import { ref } from "vue";
 import BaseInput from "@/components/UI/BaseInput.vue";
+import BaseModal from "@/components/UI/BaseModal.vue";
+import BaseOverlay from "@/components/UI/BaseOverlay.vue";
+import api from "@/api";
 
+const showModal = ref(false);
+const router = useRouter();
 const formSchema = yupObject({
   name: yupString().required(),
   email: yupString().required().email(),
@@ -49,8 +75,18 @@ const { handleSubmit, resetForm } = useForm({
   validationSchema: formSchema,
 });
 
-const onSubmit = handleSubmit((value) => {
-  console.log(value);
-  resetForm();
+const onSubmit = handleSubmit(async (value) => {
+  try {
+    const { name, email, password } = value;
+    await api.auth.signup({ name, email, password });
+    resetForm();
+    showModal.value = true;
+    setTimeout(() => {
+      showModal.value = false;
+      router.replace({ name: "Home" });
+    }, 2000);
+  } catch (err) {
+    console.log(err);
+  }
 });
 </script>

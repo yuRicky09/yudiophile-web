@@ -1,20 +1,11 @@
 <template>
-  <div
-    class="relative z-20 flex h-16 items-center justify-between px-4 md:hidden"
-  >
-    <MenuIcon
-      v-show="!isOpen"
-      class="cursor-pointer"
-      @click="isOpen = !isOpen"
-    />
-    <CloseIcon
-      v-show="isOpen"
-      class="cursor-pointer"
-      @click="isOpen = !isOpen"
-    />
-    <router-link :to="{ name: 'Home' }">
-      <h1 class="font-bold">yudiophile</h1>
-    </router-link>
+  <div class="relative flex h-16 items-center justify-between px-4 md:hidden">
+    <div class="flex items-center gap-8">
+      <MenuIcon class="cursor-pointer" @click="isOpen = !isOpen" />
+      <router-link :to="{ name: 'Home' }">
+        <h1 class="font-bold">yudiophile</h1>
+      </router-link>
+    </div>
     <div class="flex items-center gap-2">
       <UserIcon class="cursor-pointer" />
       <CartIcon class="cursor-pointer" />
@@ -26,8 +17,12 @@
     >
       <nav
         v-show="isOpen"
-        class="absolute top-full left-0 w-full origin-top rounded-b-2xl bg-white py-8 text-center text-black"
+        class="absolute top-0 left-0 z-20 w-full origin-top rounded-b-2xl bg-white py-10 text-center text-black shadow-lg"
       >
+        <CloseIcon
+          class="absolute right-2 top-2 h-9 w-9 cursor-pointer"
+          @click="isOpen = !isOpen"
+        />
         <ul class="flex flex-col text-lg" @click="closeMenu">
           <li>
             <router-link :to="{ name: 'Login' }" class="block py-4"
@@ -52,8 +47,8 @@
         </ul>
       </nav>
     </Transition>
+    <BaseOverlay v-show="isOpen" @click="isOpen = false" />
   </div>
-  <BaseOverlay v-show="isOpen" @click="isOpen = false" />
 </template>
 
 <script setup>
