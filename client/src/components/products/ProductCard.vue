@@ -23,14 +23,21 @@
     <div
       class="basis-3/5 px-6 text-center lg:px-0 lg:pl-16 lg:text-left xl:pl-32"
     >
-      <h4 class="tracking-[0.5rem] text-orange-450">NEW PRODUCT</h4>
+      <h4 class="uppercase tracking-[0.5rem] text-orange-450">New Product</h4>
       <h3 class="mt-4 mb-8 font-bold">XX99 Mark II Headphones</h3>
       <p class="mb-6">
         The new XX99 Mark II headphones is the pinnacle of pristine audio. It
         redefines your premium headphone experience by reproducing the balanced
         depth and precision of studio-quality sound.
       </p>
-      <router-link class="btn inline-block" to="#">See Product</router-link>
+      <router-link
+        class="btn inline-block"
+        :to="{
+          name: 'ProductDetail',
+          params: { category: 'headphones', productId: '1234567' },
+        }"
+        >See Product</router-link
+      >
     </div>
   </div>
 </template>
