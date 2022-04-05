@@ -3,7 +3,7 @@
     <div
       class="mx-auto flex h-[calc(100vh_-_4rem)] w-full max-w-8xl items-center justify-center bg-[url('/src/assets/images/home/mobile/image-header.jpg')] bg-cover bg-center bg-no-repeat"
     >
-      <div class="w-3/5 px-10 text-center text-white">
+      <div class="px-10 text-center text-white lg:w-3/5">
         <span class="uppercase tracking-[0.5rem] text-stone-500 md:text-2xl"
           >New product</span
         >

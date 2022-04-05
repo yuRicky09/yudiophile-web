@@ -2,20 +2,20 @@
   <div>
     <HeroImage />
     <div class="layout">
-      <div class="section mt-28 flex flex-col gap-6 sm:flex-row">
-        <ProductListNav
-          category-title="HEADPHONES"
+      <ProductListNav>
+        <ProductListNavItem
+          category-title="headphones"
           img-url="shared/desktop/image-category-thumbnail-headphones.png"
         />
-        <ProductListNav
-          category-title="SPEAKERS"
+        <ProductListNavItem
+          category-title="speakers"
           img-url="shared/desktop/image-category-thumbnail-speakers.png"
         />
-        <ProductListNav
-          category-title="EARPHONES"
+        <ProductListNavItem
+          category-title="earphones"
           img-url="shared/desktop/image-category-thumbnail-earphones.png"
         />
-      </div>
+      </ProductListNav>
 
       <div class="section grid grid-cols-1 gap-y-8">
         <div
@@ -103,7 +103,7 @@
         </div>
       </div>
 
-      <BrandIntroduction class="section" />
+      <BrandIntroduction />
     </div>
   </div>
 </template>
@@ -111,5 +111,6 @@
 <script setup>
 import HeroImage from "@/components/home/HeroImage.vue";
 import ProductListNav from "@/components/navigation/ProductListNav.vue";
+import ProductListNavItem from "@/components/navigation/ProductListNavItem.vue";
 import BrandIntroduction from "@/components/BrandIntroduction.vue";
 </script>

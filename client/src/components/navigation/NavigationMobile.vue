@@ -1,5 +1,7 @@
 <template>
-  <div class="relative flex h-16 items-center justify-between px-4 md:hidden">
+  <div
+    class="relative -mx-4 flex h-16 items-center justify-between px-4 md:hidden"
+  >
     <div class="flex items-center gap-8">
       <MenuIcon class="cursor-pointer" @click="isOpen = !isOpen" />
       <router-link :to="{ name: 'Home' }">

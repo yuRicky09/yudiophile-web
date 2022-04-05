@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mb-32 flex flex-col gap-8 text-center lg:flex-row lg:items-center lg:justify-center"
+    class="section flex flex-col gap-8 text-center lg:flex-row lg:items-center lg:justify-center"
   >
     <picture class="lg:order-1 lg:w-1/2">
       <source

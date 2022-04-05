@@ -34,6 +34,15 @@ const routes = [
     },
     component: () => import("@/views/auth/ForgotPassword.vue"),
   },
+  {
+    path: "/products/:category",
+    name: "Products",
+    meta: {
+      title: "Yudiophile | Products",
+    },
+    props: true,
+    component: () => import("@/views/Products.vue"),
+  },
 ];
 
 const router = createRouter({
