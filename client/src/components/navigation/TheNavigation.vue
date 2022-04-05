@@ -1,6 +1,6 @@
 <template>
   <header class="border-b border-b-gray-700 bg-zinc-900 text-white">
-    <div class="mx-auto max-w-8xl">
+    <div class="layout">
       <NavigationDesktop />
       <NavigationMobile />
     </div>

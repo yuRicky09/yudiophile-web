@@ -1,8 +1,8 @@
 <template>
   <div>
     <TheNavigation />
-    <router-view class="px-4"></router-view>
-    <TheFooter class="px-4" />
+    <router-view></router-view>
+    <TheFooter />
   </div>
 </template>
 
