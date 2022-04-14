@@ -4,15 +4,15 @@
     <div class="layout">
       <ProductListNav>
         <ProductListNavItem
-          category-title="headphones"
+          category="headphones"
           img-url="shared/desktop/image-category-thumbnail-headphones.png"
         />
         <ProductListNavItem
-          category-title="speakers"
+          category="speakers"
           img-url="shared/desktop/image-category-thumbnail-speakers.png"
         />
         <ProductListNavItem
-          category-title="earphones"
+          category="earphones"
           img-url="shared/desktop/image-category-thumbnail-earphones.png"
         />
       </ProductListNav>

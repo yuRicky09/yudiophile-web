@@ -22,13 +22,11 @@
 
     <div class="my-8 space-y-5 md:my-0 md:basis-3/5 md:p-10">
       <h4 class="uppercase tracking-[0.5rem] text-orange-450">New product</h4>
-      <h2 class="font-bold">XX99 Mark II Headphones</h2>
+      <h2 class="font-bold">{{ product.name }}</h2>
       <p>
-        The new XX99 Mark II headphones is the pinnacle of pristine audio. It
-        redefines your premium headphone experience by reproducing the balanced
-        depth and precision of studio-quality sound.
+        {{ product.description }}
       </p>
-      <span class="block font-bold">$2,999</span>
+      <span class="block font-bold">${{ product.price }}</span>
       <div class="my-8 flex justify-between md:justify-start md:gap-1 lg:gap-6">
         <QuantityControlBtn />
         <button class="btn">Add to Card</button>
@@ -39,4 +37,11 @@
 
 <script setup>
 import QuantityControlBtn from "@/components/UI/QuantityControlBtn.vue";
+
+defineProps({
+  product: {
+    type: Object,
+    required: true,
+  },
+});
 </script>

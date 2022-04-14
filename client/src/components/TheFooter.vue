@@ -21,17 +21,23 @@
             >
           </li>
           <li>
-            <router-link to="#" class="transition-colors hover:text-orange-300"
+            <router-link
+              :to="{ name: 'Products', params: { category: 'headphones' } }"
+              class="transition-colors hover:text-orange-300"
               >HEADPHONES</router-link
             >
           </li>
           <li>
-            <router-link to="#" class="transition-colors hover:text-orange-300"
+            <router-link
+              :to="{ name: 'Products', params: { category: 'speakers' } }"
+              class="transition-colors hover:text-orange-300"
               >SPEAKERS</router-link
             >
           </li>
           <li>
-            <router-link to="#" class="transition-colors hover:text-orange-300"
+            <router-link
+              :to="{ name: 'Products', params: { category: 'earphones' } }"
+              class="transition-colors hover:text-orange-300"
               >EARPHONES</router-link
             >
           </li>

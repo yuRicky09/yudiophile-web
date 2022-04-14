@@ -6,22 +6,24 @@
 
     <div class="layout mt-28">
       <div class="section flex flex-col gap-32">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard
+          v-for="product in products"
+          :key="product._id"
+          :product="product"
+        />
       </div>
 
       <ProductListNav>
         <ProductListNavItem
-          category-title="HEADPHONES"
+          category="headphones"
           img-url="shared/desktop/image-category-thumbnail-headphones.png"
         />
         <ProductListNavItem
-          category-title="SPEAKERS"
+          category="speakers"
           img-url="shared/desktop/image-category-thumbnail-speakers.png"
         />
         <ProductListNavItem
-          category-title="EARPHONES"
+          category="earphones"
           img-url="shared/desktop/image-category-thumbnail-earphones.png"
         />
       </ProductListNav>
@@ -32,15 +34,37 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { onBeforeRouteUpdate } from "vue-router";
 import ProductCard from "@/components/products/ProductCard.vue";
 import ProductListNav from "@/components/navigation/ProductListNav.vue";
 import ProductListNavItem from "@/components/navigation/ProductListNavItem.vue";
 import BrandIntroduction from "@/components/BrandIntroduction.vue";
+import api from "@/api";
 
-defineProps({
+const props = defineProps({
   category: {
     type: String,
     required: true,
   },
+});
+
+const products = ref(null);
+
+async function getAllProducts(category) {
+  try {
+    const { data } = await api.product.getAllProducts(category);
+    products.value = data.data.products;
+    console.log(products.value);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+getAllProducts(props.category);
+
+onBeforeRouteUpdate(async (to) => {
+  const category = to.params.category;
+  getAllProducts(category);
 });
 </script>

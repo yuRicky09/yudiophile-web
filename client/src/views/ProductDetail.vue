@@ -1,30 +1,19 @@
 <template>
-  <div class="layout">
-    <router-link to="#" class="my-10 inline-block hover:text-orange-450"
+  <div v-if="product" class="layout">
+    <router-link
+      :to="{ name: 'Products', params: { category } }"
+      class="my-10 inline-block hover:text-orange-450"
       >Go Back</router-link
     >
 
     <div class="section">
-      <ProductDetailCard />
+      <ProductDetailCard :product="product" />
     </div>
 
     <div class="section flex flex-col gap-16 lg:flex-row lg:gap-8 xl:gap-32">
       <div class="flex flex-col lg:basis-4/6">
         <h3 class="mb-6 font-bold uppercase">Features</h3>
-        <p>
-          Featuring a genuine leather head strap and premium earcups, these
-          headphones deliver superior comfort for those who like to enjoy
-          endless listening. It includes intuitive controls designed for any
-          situation. Whether you’re taking a business call or just in your own
-          personal space, the auto on/off and pause features ensure that you’ll
-          never miss a beat. The advanced Active Noise Cancellation with
-          built-in equalizer allow you to experience your audio world on your
-          terms. It lets you enjoy your audio in peace, but quickly interact
-          with your surroundings when you need to. Combined with Bluetooth 5. 0
-          compliant connectivity and 17 hour battery life, the XX99 Mark II
-          headphones gives you superior sound, cutting-edge technology, and a
-          modern design aesthetic.
-        </p>
+        <p>{{ product.features }}</p>
       </div>
 
       <div
@@ -32,11 +21,10 @@
       >
         <h3 class="font-bold uppercase md:basis-1/2 lg:mb-6">In the box</h3>
         <ul class="space-y-4 md:basis-1/2">
-          <li><span class="mr-4 text-orange-450">1x</span>Headphone unit</li>
-          <li><span class="mr-4 text-orange-450">2x</span>Headphone unit</li>
-          <li><span class="mr-4 text-orange-450">1x</span>Headphone unit</li>
-          <li><span class="mr-4 text-orange-450">1x</span>Headphone unit</li>
-          <li><span class="mr-4 text-orange-450">1x</span>Headphone unit</li>
+          <li v-for="item in product.includes" :key="item._id">
+            <span class="mr-4 text-orange-450">{{ item.quantity }}</span
+            >{{ item.item }}
+          </li>
         </ul>
       </div>
     </div>
@@ -119,15 +107,15 @@
 
     <ProductListNav>
       <ProductListNavItem
-        category-title="headphones"
+        category="headphones"
         img-url="shared/desktop/image-category-thumbnail-headphones.png"
       />
       <ProductListNavItem
-        category-title="speakers"
+        category="speakers"
         img-url="shared/desktop/image-category-thumbnail-speakers.png"
       />
       <ProductListNavItem
-        category-title="earphones"
+        category="earphones"
         img-url="shared/desktop/image-category-thumbnail-earphones.png"
       />
     </ProductListNav>
@@ -137,10 +125,35 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import BrandIntroduction from "@/components/BrandIntroduction.vue";
 import ProductDetailCard from "@/components/product-detail/ProductDetailCard.vue";
 import ReconmendList from "@/components/product-detail/ReconmendList.vue";
 import ReconmendListItem from "@/components/product-detail/ReconmendListItem.vue";
 import ProductListNav from "@/components/navigation/ProductListNav.vue";
 import ProductListNavItem from "@/components/navigation/ProductListNavItem.vue";
+import api from "@/api";
+
+const props = defineProps({
+  category: {
+    type: String,
+    required: true,
+  },
+  productId: {
+    type: String,
+    required: true,
+  },
+});
+
+const product = ref(null);
+
+async function getProduct() {
+  const { data } = await api.product.getProduct(
+    props.category,
+    props.productId
+  );
+  product.value = data.data.product;
+}
+
+getProduct();
 </script>

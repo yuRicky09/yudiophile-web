@@ -1,3 +1,4 @@
 import auth from "./auth";
+import product from "./product";
 
-export default { auth };
+export default { auth, product };
