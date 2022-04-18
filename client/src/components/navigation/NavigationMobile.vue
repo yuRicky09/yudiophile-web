@@ -37,13 +37,25 @@
             >
           </li>
           <li>
-            <router-link to="#" class="block py-4">HEADPHONES</router-link>
+            <router-link
+              :to="{ name: 'Products', params: { category: 'headphones' } }"
+              class="block py-4"
+              >HEADPHONES</router-link
+            >
           </li>
           <li>
-            <router-link to="#" class="block py-4">SPEAKERS</router-link>
+            <router-link
+              :to="{ name: 'Products', params: { category: 'speakers' } }"
+              class="block py-4"
+              >SPEAKERS</router-link
+            >
           </li>
           <li>
-            <router-link to="#" class="block py-4">EARPHONES</router-link>
+            <router-link
+              :to="{ name: 'Products', params: { category: 'earphones' } }"
+              class="block py-4"
+              >EARPHONES</router-link
+            >
           </li>
           <li ref="logoutEl" class="py-4">LOGOUT</li>
         </ul>

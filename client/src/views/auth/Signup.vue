@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 py-10">
+  <div class="layout !max-w-3xl bg-gray-50 py-10">
     <div>
       <h3 class="mb-6 text-center text-orange-450">CREATE YOUR ACCOUNT!</h3>
       <form class="flex flex-col gap-6" @submit="onSubmit">

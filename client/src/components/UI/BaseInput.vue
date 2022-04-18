@@ -6,8 +6,8 @@
       :value="inputValue"
       :type="type"
       :placeholder="placeholder"
-      class="mt-2 block w-full border-2 outline-none ring-0 transition-colors placeholder:text-sm focus:border-[2px] focus:border-orange-450 focus:ring-0"
-      :class="{ 'border-rose-500': errorMessage && !meta.touched }"
+      class="mt-2 block w-full border-2 outline-none ring-0 transition-colors placeholder:text-sm focus:border-[2px] focus:border-orange-300 focus:ring-0"
+      :class="{ 'border-rose-500': errorMessage }"
       autocomplete="false"
       v-on="validationListeners"
     />
@@ -46,7 +46,6 @@ const {
   value: inputValue,
   errorMessage,
   handleChange,
-  meta,
 } = useField(props.name, undefined, {
   initialValue: props.initialValue,
   validateOnValueUpdate: false,

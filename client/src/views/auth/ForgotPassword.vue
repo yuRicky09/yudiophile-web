@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 py-10">
+  <div class="layout !max-w-3xl bg-gray-50 py-10 md:py-28">
     <div>
       <h3 class="mb-6 text-center uppercase text-orange-450">
         Forgot Password
